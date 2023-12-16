@@ -18,12 +18,10 @@ class UserContoller extends Controller
         ]);
 
         if ($request->input('password') == $request->input('confirmPassowrd')) {
-
             auth()->user()->update([
                 'password' => Hash::make($request->input('password')),
             ]);
             return ['msg' => 'Successfully Updated Password'];
-
         } else {
             return ['msg' => 'Password Field not Match to Confrim Password'];
         }
